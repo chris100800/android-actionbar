@@ -1,20 +1,18 @@
-package com.chris.android.flipper;
+package com.chris.viewflipper;
 
-import com.chris.android.flipper.R;
 import android.app.Activity;
 import android.os.Bundle;
-import android.os.Handler;
 import android.util.Log;
 import android.view.GestureDetector;
 import android.view.GestureDetector.OnGestureListener;
-import android.view.Menu;
 import android.view.MotionEvent;
 import android.view.animation.AnimationUtils;
-import android.widget.TextView;
 import android.widget.ViewFlipper;
 
-public class MainActivity extends Activity {
-	
+import com.chris.R;
+
+public class ViewFlipperTest extends Activity {
+
 	private ViewFlipper viewFlipper;
 	private GestureDetector gesture;
 	private OnGestureListener listener = new OnGestureListener() {
@@ -72,25 +70,18 @@ public class MainActivity extends Activity {
 	};
 	
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
+		setContentView(R.layout.viewflipper);
 
 		viewFlipper = (ViewFlipper) findViewById(R.id.viewFlipper);
 		gesture = new GestureDetector(listener);
 	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main, menu);
-		return true;
-	}
-
+	
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
 		// TODO Auto-generated method stub
 		return gesture.onTouchEvent(event);
 	}	
-
+	
 }
